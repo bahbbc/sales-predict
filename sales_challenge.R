@@ -1,7 +1,7 @@
 library(jsonlite)
 
 # read file
-file <- readLines('~/Desktop/sample.txt', encoding = "UTF-8")
+file <- readLines('sample.txt', encoding = "UTF-8")
 
 # fix file to be just one big string
 full_json <- paste(file, collapse = '')
