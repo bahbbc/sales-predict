@@ -132,7 +132,7 @@ aggregate(products$value, by = list(products$day), FUN = mean)
 # divide the data in one week + 5 days (train_data) and more 5 days (test_data)
 # day 16 is the divisor between those weeks
 
-train_data <- products[products$day < 16,]
+train_data <- products[products$day <= 16,]
 test_data <-  products[products$day > 16,]
 
 # the model consists only on hour and table. Hour is a stronger variable according to it's p-value.
@@ -140,7 +140,7 @@ linear_regression <- lm(value ~ restaurant_table + hour, data = train_data)
 summary(linear_regression)
 
 # test the model against test_data and compares it with the model mean and the actual mean for the week.
-mean(predict(linear_regression, test_data)) #25,91
+mean(predict(linear_regression, test_data)) #26,07
 mean(test_data$value) #26,09
 
 # know what time the customer arrives and what table he sits gaves the amount a customer will spend.
